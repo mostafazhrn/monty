@@ -7,10 +7,9 @@ glob_t sthead;
  */
 void op_start(stack_t **stack)
 {
-  *stack = NULL;
-  sthead.prime = stack;
+*stack = NULL;
+sthead.prime = stack;
 }
-
 /**
  *main- this code shall take args
  *@argc: this hsall represent the arg count
@@ -19,14 +18,14 @@ void op_start(stack_t **stack)
  */
 int main(int argc, char *argv[])
 {
-  stack_t *stack;
-  op_start(&stack);
-  switch (argc == 2)
-    {
-    case 1:
-      trouve_fiche(argv[1], &stack);
-      break;
-    }
-  fprintf(stderr, "USAGE: monty file\n" );
-  exit(EXIT_FAILURE);
+stack_t *stack;
+op_start(&stack);
+switch (argc == 2)
+{
+case 1:
+trouve_fiche(argv[1], &stack);
+break;
+}
+fprintf(stderr, "USAGE: monty file\n" );
+exit(EXIT_FAILURE);
 }

@@ -7,12 +7,11 @@
  */
 void op_pall(stack_t **stack, unsigned int line_number)
 {
-    stack_t *q = *stack;
-    (void)line_number;
-
-    while (q != NULL)
-    {
-        printf("%d\n", q->n);
-        q = q->next;
-    }
+stack_t *q = *stack;
+(void)line_number;
+while (q != NULL)
+{
+printf("%d\n", q->n);
+q = q->next;
+}
 }
