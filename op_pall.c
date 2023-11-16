@@ -1,0 +1,18 @@
+#include "monty.h"
+/**
+ * op_pall - this code shall print values on the stack, starting from the top
+ * @stack: this shall pepresent theptr to the top of the stack
+ * @line_number: this shall represent the number of the opcode
+ * Return: it shall return void
+ */
+void op_pall(stack_t **stack, unsigned int line_number)
+{
+    stack_t *q = *stack;
+    (void)line_number;
+
+    while (q != NULL)
+    {
+        printf("%d\n", q->n);
+        q = q->next;
+    }
+}

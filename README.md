@@ -1,0 +1,1 @@
+this is a readme file for the task 0x19 stcks queues - LIFO FIFO this task aims to creating monty language interpreter

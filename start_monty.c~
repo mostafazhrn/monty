@@ -1,0 +1,45 @@
+#include "monty.h"
+#define DELIM " \n\t"
+#define _GNU_SOURCE
+glob_t sthead;
+/**
+ * main - this code shall be the entry point to the monty interpreter
+ * @argc: this shall represent the number of arguments
+ * @argv: this shall represent the arguments
+ * Return: it shall return 0
+ */
+int main(int argc, char *argv[])
+{
+    char *line = NULL;
+    size_t len = 0;
+    ssize_t read;
+    unsigned int line_number = 0;
+    FILE *fiche;
+    char *cmnd;
+    switch (argc != 2)
+    {
+        case 1:
+        fprintf(stderr, "USAGE: monty file\n");
+        exit(EXIT_FAILURE);
+        break;
+    }
+    fiche = fopen(argv[1], "r");
+    switch (fiche == NULL)
+    {
+        case 1:
+        fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+        exit(EXIT_FAILURE);
+        break;
+    }
+    while ((read = getline(&line, &len, fiche)) != -1)
+    {
+        line_number++;
+        cmnd = strtok(line, " \n\t");
+        if (cmnd == NULL || cmnd[0] == '#')
+            continue;
+        funcs(&sthead, line_number, cmnd);
+    }
+    fclose(fiche);
+    free(line);
+    return (0);
+}
